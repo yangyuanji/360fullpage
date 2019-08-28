@@ -1,0 +1,203 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/*
+第一屏的样式*/
+.section{
+  overflow: hidden;  /*给所有的屏加overflow避免第一屏跑到下一屏*/
+}
+.first {
+  padding-top: 20px;
+}
+
+/*插件会默认给新元素创建父盒子，所用的logo并不是first的直接子元素*/
+.first .logo {
+  background: url("../images/logo.png") no-repeat;
+  height: 186px;
+  width: 251px;
+  margin: 0 auto;
+}
+
+.first .text {
+  width: 100%;
+  text-align: center;
+  margin-top: 80px;
+}
+.first .text img {
+margin: 0 16px;
+  opacity: 0;
+  transition: margin 2s,opacity 2s;  /*先前的效果*/
+
+}
+.first.current .text img {
+  margin: 0 2px;
+  opacity: 1;            /*触发后的效果*/
+}
+.first .intro {
+  height: 49px;
+  width: 772px;
+  background: url("../images/info_1.png");
+  margin:  40px auto;
+
+}
+
+/*第二屏样式*/
+.second>div {
+display: flex;
+  justify-content: space-around;  /*伸缩盒子布局*/
+  align-items: center;
+
+}
+
+.second .shield {
+  width: 440px;
+  font-size: 0;
+
+}
+.second .shield img {
+transition: transform 2s;
+}
+.second .shield > img:nth-of-type(1){
+  transform: translate(100px,100px) rotate(30deg);
+}
+.second .shield > img:nth-of-type(2){
+  transform: translate(-100px,-100px) rotate(-30deg);
+}
+.second .shield > img:nth-of-type(3){
+  transform: translate(200px,200px) rotate(60deg);
+}
+.second .shield > img:nth-of-type(4){
+  transform: translate(-200px,-200px) rotate(-60deg);
+}
+.second .shield > img:nth-of-type(5){
+  transform: translate(150px,150px) rotate(90deg);
+}
+.second .shield > img:nth-of-type(6){
+  transform: translate(50px,150px) rotate(-90deg);
+}
+.second .shield > img:nth-of-type(7){
+  transform: translate(-150px,-150px) rotate(60deg);
+}
+.second .shield > img:nth-of-type(8){
+  transform: translate(10px,-250px) rotate(-90deg);
+}
+.second .shield > img:nth-of-type(9){
+  transform: translate(-250px,10px) rotate(45deg);
+}
+/*添加第二批效果*/
+.second.current .shield img {
+  transform: none;
+}
+
+.second .info {
+  background: url("../images/info_2.png");
+  width: 635px;
+  height: 309px;
+}
+/*第三批样式*/
+.third {
+position: relative;
+}
+.third .info2 {
+  height: 278px;
+  width:631px;
+  background: url("../images/info_3.png") no-repeat;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+ transform: translate(-100%,-50%) scale(0.6);
+
+
+}
+.third .circle {
+  width: 453px;
+  height: 449px;
+  background: url("../images/circle.png") no-repeat;
+
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  transform: translate(100%,-50%);
+}
+
+
+.third .circle .rocket {
+  background-image: url("../images/rocket.png");
+  height: 203px; ;
+  width: 204px;
+  position: absolute;
+  left: -400px;
+  top: 700px;
+  transition: top 1s,left 1s,transform 1s;
+}
+/*
+添加第三屏动画*/
+.third.current .circle .rocket {
+left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+
+/*第4屏样式*/
+.fourth {
+  position: relative;
+}
+.fourth .search {
+  height: 438px;
+  width: 529px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+transform: translate(-100%,-50%) scale(0.8);
+  overflow: hidden;
+
+}
+.fourth .search .searchBar {
+  width: 529px;
+  height: 66px;
+  background: url("../images/search.png");
+  transform: translate(-100%); /*默认不可见*/
+}
+.fourth .search .searchText {
+  width: 0px;  /*默认不可见*/
+  height: 22px;
+  background: url("../images/key.png");
+  position: absolute;
+  top: 22px;
+  left: 8px;
+  transition: width 1s 1s steps(5);   /*等1s后执行，并且分为5步执行*/
+}
+.fourth .search .searchResult {
+  width: 529px;
+  /*height: 372px;*/  /*高度不可见*/
+  height: 0px;
+  background: url("../images/result.png");
+  margin-top: -12px;
+}
+.fourth .info4 {
+  width: 612px;
+  height: 299px;
+  background: url("../images/info_4.png");
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  transform: translate(80%,-50%) scale(0.6);
+}
+
+/*第四屏动画*/
+.fourth.current .search .searchBar {
+  transform: translate(0%);
+  transition: transform 1s;
+}
+.fourth.current .search .searchText {
+  width: 99px;
+}
+
+.fourth.current .search .searchResult {
+  height: 372px;
+  transition: height 1s 2s;  /*延迟2s后执行*/
+}

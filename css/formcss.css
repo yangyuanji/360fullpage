@@ -1,0 +1,36 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /*不受padding影响撑开*/
+}
+
+form {
+  width: 600px;
+  margin: 20px auto;
+}
+
+form>fieldset {
+  padding: 20px;
+}
+form>fieldset>input {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;  /*锤子剧中*/
+  margin: 15px 0;
+  border: none;     /*先清除，后添加避免有阴影*/
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  font-size: 14px;
+  padding-left: 10px;
+}
+form>fieldset>meter {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;  /*锤子剧中*/
+  margin: 15px 0;
+  border: none;     /*先清除，后添加避免有阴影*/
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  font-size: 14px;
+  padding-left: 10px;
+}
